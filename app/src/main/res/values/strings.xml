@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Oil_peice</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="Ok">OK</string>
+    <string name="configure">Configure</string>
+    <string name="選擇汽油種類">選擇汽油種類</string>
+</resources>
