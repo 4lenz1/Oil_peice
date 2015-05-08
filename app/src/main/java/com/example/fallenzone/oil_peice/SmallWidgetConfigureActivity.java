@@ -6,7 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -15,7 +17,7 @@ import android.widget.Spinner;
 /**
  * The configuration screen for the {@link SmallWidget SmallWidget} AppWidget.
  */
-public class SmallWidgetConfigureActivity extends Activity {
+public class SmallWidgetConfigureActivity extends Activity simplements AdapterView.OnItemSelectedListener{
 
     int mAppWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
     private static final String PREFS_NAME = "com.example.fallenzone.oil_peice.SmallWidget";
@@ -45,6 +47,8 @@ public class SmallWidgetConfigureActivity extends Activity {
 
         oil_type_spinner.setAdapter(adapter);
         findViewById(R.id.add_button).setOnClickListener(mOnClickListener);
+
+        oil_type_spinner.setOnItemClickListener((AdapterView.OnItemClickListener) this);
 
         // Find the widget id from the intent.
         Intent intent = getIntent();
@@ -107,5 +111,13 @@ public class SmallWidgetConfigureActivity extends Activity {
         prefs.remove(PREF_PREFIX_KEY + appWidgetId);
         prefs.apply();
     }
-}
 
+
+    public  void onItemSelected(AdapterView<?> parent , View view , int pos , long id ){
+        parent.getItemAtPosition(pos);
+        Log.d("pos", Integer.toString(pos));
+    }
+    public void onNothingSelected(AdapterView<?> parent){
+
+    }
+}
